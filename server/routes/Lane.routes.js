@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import * as LaneController from '../controllers/Lane.controller';
-import noteRouter from './note.routes';
+import noteRouter from './Note.routes';
 
 const router = new Router();
 
