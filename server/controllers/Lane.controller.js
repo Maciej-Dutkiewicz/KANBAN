@@ -1,6 +1,6 @@
 import Lane from '../models/Lane';
 import uuid from 'uuid';
-import Note from '../models/note';
+import Note from '../models/Note';
 
 export function getSomething(req, res) {
  return res.status(200).end();
