@@ -25,12 +25,12 @@ export function addNote(req, res) {
         }
 
         return res.json({note: saved});
-      });      
+      });
     });
   });
 }
 export function renameNote(req, res) {
-  Note.findOne({ id: req.params.taskId }).exec((err, note) => {
+  Note.findOne({ id: req.params.noteId }).exec((err, note) => {
     if (err) {
       res.status(500).send(err);
     }
@@ -42,7 +42,7 @@ export function renameNote(req, res) {
 }
 
 export function deleteNote(req, res) {
-  Note.findOne({ id: req.params.taskId }).exec((err, note) => {
+  Note.findOne({ id: req.params.noteId }).exec((err, note) => {
     if (err) {
       res.status(500).send(err);
     }
