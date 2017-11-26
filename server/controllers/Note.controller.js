@@ -47,6 +47,19 @@ export function deleteNote(req, res) {
       res.status(500).send(err);
     }
 
+    Lane.findOne({ id: req.params.laneId }, (err, lane) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+
+      const index = lane.notes.findIndex(item => String(item) === String(note._id));
+
+      if (index !== -1) {
+        lane.notes.splice(index, 1);
+        lane.save();
+      }      
+    });
+
     note.remove(() => {
       res.status(200).end();
     });
