@@ -8,5 +8,5 @@ router.route('/notes').post(NoteController.addNote);
 // Delete
 router.route('/notes/:noteId').delete(NoteController.deleteNote);
 // Reneame
-router.route('/notes/:noteId').put(NoteController.renameNote);
+router.route('/notes/:noteId').put(NoteController.updateNote);
 export default router;

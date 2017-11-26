@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import callApi from '../../util/apiCaller';
-import { lanes } from '../../../util/schema';
+import { lanes } from '../../util/schema';
 import { normalize } from 'normalizr';
 
 // Export Constants
@@ -28,12 +28,22 @@ export function updateLane(lane) {
   };
 };
 
+// export function deleteLane(id) {
+//   return {
+//     type: DELETE_LANE,
+//     id
+//   };
+// };
 export function deleteLane(id) {
-  return {
-    type: DELETE_LANE,
-    id
+  return dispatch => {
+    return callApi(`lanes/${id}`, 'delete', id).then(res => {
+      dispatch({
+        type: DELETE_LANE,
+        id
+      });
+    });
   };
-};
+}
 export function fetchLanes() {
   return (dispatch) => {
     return callApi('lanes').then(res => {

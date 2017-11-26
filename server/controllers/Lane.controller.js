@@ -38,7 +38,7 @@ export function deleteLane(req, res) {
     }
 
     lane.notes.forEach(noteId => {
-      Note.findOne({ id: noteId}).exec((err2, note) => {
+      Note.findOne({ _id: noteId}).exec((err2, note) => {
         if (err2) {
           res.status(500).send(err2);
         }
@@ -50,7 +50,7 @@ export function deleteLane(req, res) {
     });
   });
 }
-export function renameLane(req, res) {
+export function updateLane(req, res) {
   Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
     if (err) {
       res.status(500).send(err);
